@@ -17,14 +17,47 @@ const canvas = document.querySelector("canvas.webgl");
 
 // Scene
 const scene = new THREE.Scene();
+//Objects
+const colorParameters = {
+  color: "#ffff00",
+  spin: () => {
+    console.log("Spin");
+    gsap.to(mesh.rotation, { duration: 1, y: mesh.rotation.y + 10 });
+  },
+};
 
 /**
  * Object
  */
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const material = new THREE.MeshBasicMaterial({ color: colorParameters.color });
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
+
+/**
+ * Debug
+ */
+
+//Variable Values
+gui.add(mesh.position, "x").min(-3).max(3).step(0.01).name("X-Elevation");
+gui.add(mesh.position, "y").min(-3).max(3).step(0.01).name("Y-Elevation");
+gui.add(mesh.position, "z").min(-3).max(3).step(0.01).name("Z-Elevation");
+// gui.add(mesh.position, "x", -3, 3, 0.01);
+// gui.add(mesh.position, "y", -3, 3, 0.01);
+// gui.add(mesh.position, "z", -3, 3, 0.01);
+gui.add(mesh.scale, "x").min(-2).max(2).step(1);
+gui.add(mesh.scale, "y").min(-2).max(2).step(1);
+gui.add(mesh.scale, "z").min(-2).max(2).step(1);
+//Boolean
+gui.add(mesh, "visible");
+gui.add(material, "wireframe");
+
+//Colors
+gui.addColor(colorParameters, "color").onChange(() => {
+  material.color.set(colorParameters.color);
+});
+
+gui.add(colorParameters, "spin");
 
 /**
  * Sizes
