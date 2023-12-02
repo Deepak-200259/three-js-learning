@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import * as dat from "lil-gui";
 
 /**
@@ -67,15 +67,15 @@ spotLight.position.y = 3;
  */
 //Hemisphere Light Helper
 const hemisphereLightHelper = new THREE.HemisphereLightHelper(
-  hemisphereLight,
-  0.1
+	hemisphereLight,
+	0.1,
 );
 scene.add(hemisphereLightHelper);
 
 //Directional Light Helper
 const directionalLightHelper = new THREE.DirectionalLightHelper(
-  directionalLight,
-  0.1
+	directionalLight,
+	0.1,
 );
 scene.add(directionalLightHelper);
 
@@ -100,8 +100,8 @@ sphere.position.x = -1.5;
 const cube = new THREE.Mesh(new THREE.BoxGeometry(0.75, 0.75, 0.75), material);
 
 const torus = new THREE.Mesh(
-  new THREE.TorusGeometry(0.3, 0.2, 32, 64),
-  material
+	new THREE.TorusGeometry(0.3, 0.2, 32, 64),
+	material,
 );
 torus.position.x = 1.5;
 
@@ -125,149 +125,149 @@ const rectAreaLightFolder = gui.addFolder("Rect Area Light Controls");
 const spotLightFolder = gui.addFolder("Spot Light Controls");
 //Ambient Light Controls
 ambientLightFolder
-  .add(ambientLight, "intensity")
-  .min(0)
-  .max(1)
-  .step(0.001)
-  .name("Ambient Light");
+	.add(ambientLight, "intensity")
+	.min(0)
+	.max(1)
+	.step(0.001)
+	.name("Ambient Light");
 ambientLightFolder.addColor(ambientLight, "color");
 ambientLightFolder.close();
 //Point Light Controls
 pointLightFolder
-  .add(pointLight, "intensity")
-  .min(0)
-  .max(1)
-  .step(0.001)
-  .name("Point Light Intensity");
+	.add(pointLight, "intensity")
+	.min(0)
+	.max(1)
+	.step(0.001)
+	.name("Point Light Intensity");
 pointLightFolder
-  .add(pointLight, "distance")
-  .min(0)
-  .max(1)
-  .step(0.001)
-  .name("Point Light Distance");
+	.add(pointLight, "distance")
+	.min(0)
+	.max(1)
+	.step(0.001)
+	.name("Point Light Distance");
 pointLightFolder.add(pointLight, "decay").min(0).max(20).step(1).name("Decay");
 pointLightFolder.close();
 //Directional Light Controls
 directionalLightFolder
-  .add(directionalLight, "intensity")
-  .min(0)
-  .max(1)
-  .step(0.001)
-  .name("Directional Light Intensity");
+	.add(directionalLight, "intensity")
+	.min(0)
+	.max(1)
+	.step(0.001)
+	.name("Directional Light Intensity");
 directionalLightFolder.addColor(directionalLight, "color");
 directionalLightFolder.close();
 //Hemisphere Light Controls
 hemisphereLightFolder
-  .add(hemisphereLight, "intensity")
-  .min(0)
-  .max(1)
-  .step(0.001)
-  .name("Hemisphere Light Intensity");
+	.add(hemisphereLight, "intensity")
+	.min(0)
+	.max(1)
+	.step(0.001)
+	.name("Hemisphere Light Intensity");
 hemisphereLightFolder.addColor(hemisphereLight, "color").name("Sky Color");
 hemisphereLightFolder
-  .addColor(hemisphereLight, "groundColor")
-  .name("Ground Color");
+	.addColor(hemisphereLight, "groundColor")
+	.name("Ground Color");
 hemisphereLightFolder.close();
 
 //Rect Area Light Controls
 rectAreaLightFolder.addColor(rectAreaLight, "color");
 rectAreaLightFolder
-  .add(rectAreaLight, "intensity")
-  .min(0)
-  .max(1)
-  .step(0.001)
-  .name("Rect Area Light Intensity");
+	.add(rectAreaLight, "intensity")
+	.min(0)
+	.max(1)
+	.step(0.001)
+	.name("Rect Area Light Intensity");
 rectAreaLightFolder
-  .add(rectAreaLight, "width")
-  .min(1)
-  .max(10)
-  .step(0.1)
-  .name("Rect Area Width");
+	.add(rectAreaLight, "width")
+	.min(1)
+	.max(10)
+	.step(0.1)
+	.name("Rect Area Width");
 rectAreaLightFolder
-  .add(rectAreaLight, "height")
-  .min(1)
-  .max(10)
-  .step(0.1)
-  .name("Rect Area height");
+	.add(rectAreaLight, "height")
+	.min(1)
+	.max(10)
+	.step(0.1)
+	.name("Rect Area height");
 rectAreaLightFolder.close();
 
 //Spot Light Controls
 spotLightFolder.addColor(spotLight, "color");
 spotLightFolder
-  .add(spotLight, "intensity")
-  .min(0)
-  .max(1)
-  .step(0.001)
-  .name("Spot Light Intesity");
+	.add(spotLight, "intensity")
+	.min(0)
+	.max(1)
+	.step(0.001)
+	.name("Spot Light Intesity");
 spotLightFolder
-  .add(spotLight, "distance")
-  .min(Math.PI * 0.1)
-  .max(Math.PI)
-  .step(0.001)
-  .name("Spot Light Distance");
+	.add(spotLight, "distance")
+	.min(Math.PI * 0.1)
+	.max(Math.PI)
+	.step(0.001)
+	.name("Spot Light Distance");
 spotLightFolder
-  .add(spotLight, "penumbra")
-  .min(0)
-  .max(10)
-  .step(0.01)
-  .name("Spot Light Penumbra");
+	.add(spotLight, "penumbra")
+	.min(0)
+	.max(10)
+	.step(0.01)
+	.name("Spot Light Penumbra");
 spotLightFolder
-  .add(spotLight, "angle")
-  .min(0)
-  .max(1)
-  .step(0.1)
-  .name("Spot Light Angle");
+	.add(spotLight, "angle")
+	.min(0)
+	.max(1)
+	.step(0.1)
+	.name("Spot Light Angle");
 spotLightFolder.close();
 
 /**
  * Sizes
  */
 const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight,
+	width: window.innerWidth,
+	height: window.innerHeight,
 };
-
-window.addEventListener("resize", () => {
-  // Update sizes
-  sizes.width = window.innerWidth;
-  sizes.height = window.innerHeight;
-
-  // Update camera
-  camera.aspect = sizes.width / sizes.height;
-  camera.updateProjectionMatrix();
-
-  // Update renderer
-  renderer.setSize(sizes.width, sizes.height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-});
 
 /**
  * Camera
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(
-  75,
-  sizes.width / sizes.height,
-  0.1,
-  100
+	75,
+	sizes.width / sizes.height,
+	0.1,
+	100,
 );
 camera.position.x = 1;
 camera.position.y = 2;
 camera.position.z = 2;
 scene.add(camera);
 
-// Controls
-const controls = new OrbitControls(camera, canvas);
-controls.enableDamping = true;
-
 /**
  * Renderer
  */
 const renderer = new THREE.WebGLRenderer({
-  canvas: canvas,
+	canvas: canvas,
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+window.addEventListener("resize", () => {
+	// Update sizes
+	sizes.width = window.innerWidth;
+	sizes.height = window.innerHeight;
+
+	// Update camera
+	camera.aspect = sizes.width / sizes.height;
+	camera.updateProjectionMatrix();
+
+	// Update renderer
+	renderer.setSize(sizes.width, sizes.height);
+	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+});
+
+// Controls
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
 
 /**
  * Animate
@@ -275,28 +275,28 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const clock = new THREE.Clock();
 
 const update = () => {
-  const elapsedTime = clock.getElapsedTime();
+	const elapsedTime = clock.getElapsedTime();
 
-  // Update objects
-  sphere.rotation.y = 0.1 * elapsedTime;
-  cube.rotation.y = 0.1 * elapsedTime;
-  torus.rotation.y = 0.1 * elapsedTime;
+	// Update objects
+	sphere.rotation.y = 0.1 * elapsedTime;
+	cube.rotation.y = 0.1 * elapsedTime;
+	torus.rotation.y = 0.1 * elapsedTime;
 
-  sphere.rotation.x = 0.15 * elapsedTime;
-  cube.rotation.x = 0.15 * elapsedTime;
-  torus.rotation.x = 0.15 * elapsedTime;
+	sphere.rotation.x = 0.15 * elapsedTime;
+	cube.rotation.x = 0.15 * elapsedTime;
+	torus.rotation.x = 0.15 * elapsedTime;
 
-  //SpotLight Helper Update
-  spotLightHelper.update();
+	//SpotLight Helper Update
+	spotLightHelper.update();
 
-  // Update controls
-  controls.update();
+	// Update controls
+	controls.update();
 
-  // Render
-  renderer.render(scene, camera);
+	// Render
+	renderer.render(scene, camera);
 
-  // Call tick again on the next frame
-  window.requestAnimationFrame(update);
+	// Call tick again on the next frame
+	window.requestAnimationFrame(update);
 };
 
 update();
